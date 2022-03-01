@@ -27,11 +27,16 @@ if [ ! -f package.json ] || [ ! -f composer.json ]; then
 	cd $wpcontentdir;
 fi
 
-# Make sure that node_modules and vendor directories exist in wp-content.
+# Make sure that node_modules exists in wp-content.
 if [ ! -d node_modules ] || [ ! -d vendor ]; then
-	cd -;
-	sh install-linters.sh;
-	cd $wpcontentdir;
+	# Run npm install in wp-content
+	npm install;
+fi
+
+# Make sure that vendor exists in wp-content.
+if [ ! -d vendor ]; then
+	# Run composer install in wp-content
+	composer install;
 fi
 
 # Run the lint command from the wp-content directory.

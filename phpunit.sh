@@ -25,11 +25,10 @@ if [ ! -f package.json ] || [ ! -f composer.json ]; then
 	cd $wpcontentdir;
 fi
 
-# Make sure that node_modules and vendor directories exist in wp-content.
-if [ ! -d node_modules ] || [ ! -d vendor ]; then
-	cd -;
-	sh install-linters.sh;
-	cd $wpcontentdir;
+# Make sure that vendor exists in wp-content.
+if [ ! -d vendor ]; then
+	# Run composer install in wp-content
+	composer install;
 fi
 
 # Start wp-env
