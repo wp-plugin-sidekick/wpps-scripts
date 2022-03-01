@@ -12,9 +12,11 @@ done
 if [ "$cwdiswppslinter" = "1" ]; then
 	plugindir="$(dirname $(dirname $(dirname $(dirname $(realpath $0) ) ) ) )/$plugindirname"
 	wpcontentdir="./../../../../"
+	scriptsdir="$(dirname $(realpath $0) ) )"
 else
 	plugindir="$(dirname $(dirname $(realpath $0) ) )"
 	wpcontentdir="$(dirname $(dirname $(dirname $(dirname $(realpath $0) ) ) ) )"
+	scriptsdir="$plugindir/wpps-scripts/"
 fi
 
 #Go to wp-content directory.
@@ -22,7 +24,7 @@ cd $wpcontentdir;
 
 # Make sure that packagejson and composer json exist in wp-content.
 if [ ! -f package.json ] || [ ! -f composer.json ]; then
-	cd -;
+	cd $scriptsdir;
 	sh hoister.sh;
 	cd $wpcontentdir;
 fi
