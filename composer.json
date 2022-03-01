@@ -4,7 +4,9 @@
 	"description": "An interface for building WordPress plugins and themes",
 	"license": "GPL-2.0",
 	"require": {
-		"php": "^7"
+		"php": "^7",
+		"ext-dom": "*",
+		"ext-simplexml": "*"
 	},
 	"require-dev": {
 	    "dealerdirect/phpcodesniffer-composer-installer": "0.7.0",
@@ -13,5 +15,10 @@
 	    "wp-coding-standards/wpcs": "2.2.0",
 		"wp-phpunit/wp-phpunit": "^5.8",
 		"yoast/phpunit-polyfills": "^1.0"
+	},
+	"config": {
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		}
 	}
 }
