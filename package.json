@@ -1,9 +1,9 @@
 {
-	"name": "wpps-linter",
+	"name": "wpps-scripts",
 	"version": "1.0.0",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/johnstonphilip/wp-plugin-sidekick"
+		"url": "https://github.com/wp-plugin-sidekick/wpps-scripts"
 	},
 	"scripts": {
 		"format": "wp-scripts format",
