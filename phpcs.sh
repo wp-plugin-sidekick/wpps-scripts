@@ -1,4 +1,4 @@
-while getopts 'p:n:t:f:' flag; do
+while getopts 'c:p:n:t:f:' flag; do
 	case "${flag}" in
 		c) cwdiswppslinter=${OPTARG} ;;
 		p) plugindirname=${OPTARG} ;;
@@ -25,7 +25,7 @@ cd $wpcontentdir;
 # Make sure that packagejson and composer json exist in wp-content.
 if [ ! -f package.json ] || [ ! -f composer.json ]; then
 	cd $scriptsdir;
-	sh hoister.sh;
+	sh hoister.sh -c $wpcontentdir;
 	cd $wpcontentdir;
 fi
 
@@ -41,10 +41,10 @@ if [ ! -d vendor ]; then
 	composer install;
 fi
 
-# Copy the phpcs.xml file from the linter module to wp-content.
-cp ./plugins/wp-plugin-sidekick/wp-modules/linter/phpcs.xml ./
+# Copy the phpcs.xml file from the wpps-scripts module to wp-content.
+cp ./plugins/wp-plugin-sidekick/wp-modules/wpps-scripts/phpcs.xml ./
 
-# Modify the phpcs.xml file in the linter module to contain the namespace and text domain of the plugin in question.
+# Modify the phpcs.xml file in the wpps-scripts module to contain the namespace and text domain of the plugin in question.
 sed -i.bak "s/MadeWithWPPS/$namespace/g" phpcs.xml
 sed -i.bak "s/madewithwpps/$textdomain/g" phpcs.xml
 

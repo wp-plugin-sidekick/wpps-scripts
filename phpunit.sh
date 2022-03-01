@@ -1,4 +1,4 @@
-while getopts 'p:m:' flag; do
+while getopts 'c:p:m:' flag; do
 	case "${flag}" in
 		c) cwdiswppslinter=${OPTARG} ;;
 		p) plugindirname=${OPTARG} ;;
@@ -23,7 +23,7 @@ cd $wpcontentdir;
 # Make sure that packagejson and composer json exist in wp-content.
 if [ ! -f package.json ] || [ ! -f composer.json ]; then
 	cd $scriptsdir;
-	sh hoister.sh;
+	sh hoister.sh -c $wpcontentdir;
 	cd $wpcontentdir;
 fi
 
