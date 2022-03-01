@@ -1,8 +1,8 @@
 # WPPS Scripts.
 
-# Add phpunit, eslint, and stylelint using WordPress Coding Standards to any WordPress plugin by setting up your package.json file like this:
+Add phpunit, eslint, and stylelint using WordPress Coding Standards to any WordPress plugin by setting up your package.json file like this:
 
-Your package.json file in your plugin.
+## Your package.json file in your plugin.
 ```
 {
 	"name": "your-plugin-name",
