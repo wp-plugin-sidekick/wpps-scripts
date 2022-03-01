@@ -4,7 +4,7 @@ while getopts 'p:n:t:f:' flag; do
 	esac
 done
 
-# Get the absolute path to the plugin we want to check.
+# Get the path to the wp-content directory
 if [ "$cwdiswppslinter" = "1" ]; then
 	wpcontentdir="./../../../../"
 else
@@ -12,5 +12,4 @@ else
 fi
 
 # Hoist package.json and composer.json to the wp-content directory
-wpcontentdir="$(dirname $(dirname $(dirname $(dirname $(realpath $0) ) ) ) )"
 cp package.json composer.json .wp-env.json $wpcontentdir
