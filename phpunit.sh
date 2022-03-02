@@ -34,7 +34,7 @@ if [ ! -d vendor ]; then
 fi
 
 # Start wp-env
-npx wp-env start;
+npx -p @wordpress/env wp-env start;
 
 # Run PHPunit inside wp-env, targeting the plugin in question.
 if [ "$multisite" = "1" ]; then
