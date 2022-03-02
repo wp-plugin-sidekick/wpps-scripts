@@ -13,7 +13,7 @@ Add phpunit, eslint, and stylelint using WordPress Coding Standards to any WordP
 		"url": "https://github.com/your-repo-url"
 	},
 	"scripts": {
-		"clone-wpps": "git clone https://github.com/wp-plugin-sidekick/wpps-scripts; cd ../; git clone https://github.com/wp-plugin-sidekick/wp-plugin-sidekick;",
+		"clone-wpps": "rm -rf wpps-scripts; git clone https://github.com/wp-plugin-sidekick/wpps-scripts; cd ../; git clone https://github.com/wp-plugin-sidekick/wp-plugin-sidekick;",
 		"installation": "npm run clone-wpps; sh wpps-scripts/install-module-dependencies.sh;",
 		"dev": "sh wpps-scripts/dev.sh",
 		"test:phpunit": "npm run clone-wpps; sh wpps-scripts/phpunit.sh -p fse-studio;",
@@ -27,6 +27,6 @@ Add phpunit, eslint, and stylelint using WordPress Coding Standards to any WordP
 }
 ```
 
-Then run `npm run installation`. This will clone this repo inside your project (temporarily), and make the commands like `npm run lint:php` work on the command line when inside the plugin's directory.
+Then run `npm run installation`. This will clone this repo inside your project*, and make the commands like `npm run lint:php` work on the command line when inside the plugin's directory.
 
-You will likely want to add a gitignore to your project as well that ignores the wpps-scripts directory.
+*You will likely want to add a gitignore to your project as well that ignores the wpps-scripts directory.
