@@ -28,7 +28,7 @@ if [ ! -f package.json ] || [ ! -f composer.json ]; then
 fi
 
 # Make sure that node_modules exists in wp-content.
-if [ ! -d node_modules ] || [ ! -d vendor ]; then
+if [ ! -d node_modules ]; then
 	# Run npm install in wp-content
 	npm install;
 fi
