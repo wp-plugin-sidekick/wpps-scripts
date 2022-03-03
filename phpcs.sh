@@ -14,19 +14,19 @@ if [ "$cwdiswppslinter" = "1" ]; then
 	wpcontentdir="./../../../../"
 	scriptsdir="$(dirname $(realpath $0) ) )"
 else
-	plugindir="$(dirname $(dirname $(realpath $0) ) )"
-	wpcontentdir="$(dirname $(dirname $(dirname $(dirname $(realpath $0) ) ) ) )"
+	plugindir="$(dirname "$(dirname "$(realpath "$0")" )" )"
+	wpcontentdir="$(dirname "$(dirname "$(dirname "$(dirname "$(realpath $0)" )" )" )" )"
 	scriptsdir="$plugindir/wpps-scripts/"
 fi
 
 #Go to wp-content directory.
-cd $wpcontentdir;
+cd "$wpcontentdir";
 
 # Make sure that packagejson and composer json exist in wp-content.
 if [ ! -f package.json ] || [ ! -f composer.json ]; then
-	cd $scriptsdir;
-	sh hoister.sh -c $wpcontentdir;
-	cd $wpcontentdir;
+	cd "$scriptsdir";
+	sh hoister.sh -c "$wpcontentdir";
+	cd "$wpcontentdir";
 fi
 
 # Make sure that node_modules exists in wp-content.
@@ -42,7 +42,7 @@ if [ ! -d vendor ]; then
 fi
 
 # Copy the phpcs.xml file from the wpps-scripts module to wp-content.
-cp ./plugins/wp-plugin-sidekick/wp-modules/wpps-scripts/phpcs.xml ./
+cp "$scriptsdir"/phpcs.xml ./
 
 # Modify the phpcs.xml file in the wpps-scripts module to contain the namespace and text domain of the plugin in question.
 sed -i.bak "s/MadeWithWPPS/$namespace/g" phpcs.xml
@@ -50,8 +50,8 @@ sed -i.bak "s/madewithwpps/$textdomain/g" phpcs.xml
 
 # Run the phpcs command from the wp-content directory.
 if [ "$fix" = "1" ]; then
-	./vendor/bin/phpcbf -q $plugindir;
-	./vendor/bin/phpcs -q $plugindir;
+	./vendor/bin/phpcbf -q "$plugindir";
+	./vendor/bin/phpcs -q "$plugindir";
 else
-	./vendor/bin/phpcs -q $plugindir;
+	./vendor/bin/phpcs -q "$plugindir";
 fi
