@@ -43,7 +43,7 @@ fi
 
 # Run the lint command from the wp-content directory.
 if [ "$fix" = "1" ]; then
-	npm run lint:js "$plugindir"  -- --fix;
+	npm run lint:js "$plugindir" -- --config "$scriptsdir.eslintrc" --fix;
 else
-	npm run lint:js "$plugindir";
+	npm run lint:js "$plugindir" -- --config "$scriptsdir.eslintrc";
 fi
