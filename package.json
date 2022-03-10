@@ -16,7 +16,7 @@
 		"test:unit": "wp-scripts test-unit-js"
 	},
 	"devDependencies": {
-		"@wordpress/env": "^4.1.3",
-		"@wordpress/scripts": "^22.1.0"
+		"@wordpress/scripts": "^19.1.0",
+		"@wordpress/env": "^4.1.3"
 	}
 }
