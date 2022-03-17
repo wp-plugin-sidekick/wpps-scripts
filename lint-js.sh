@@ -19,10 +19,9 @@ else
 	scriptsdir="$plugindir/wpps-scripts/"
 fi
 
-sh "${scriptsdir}/install-script-dependencies.sh"
-
 #Go to wp-content directory.
 cd "$wpcontentdir";
+sh "${scriptsdir}/install-script-dependencies.sh"
 
 # Run the lint command from the wp-content directory.
 if [ "$fix" = "1" ]; then

@@ -15,7 +15,7 @@ else
 	scriptsdir="$plugindir/wpps-scripts/"
 fi
 
+cd "$wpcontentdir"
 sh "${scriptsdir}/install-script-dependencies.sh"
 
-cd "$wpcontentdir"
 npm run test:js $plugindir
