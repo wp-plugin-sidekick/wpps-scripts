@@ -1,3 +1,5 @@
+#!/bin/bash
+
 while getopts 'c:p:n:t:f:' flag; do
 	case "${flag}" in
 		c) cwdiswppslinter=${OPTARG} ;;
