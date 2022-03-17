@@ -19,6 +19,8 @@ else
 	scriptsdir="$plugindir/wpps-scripts/"
 fi
 
+./install-script-dependencies.sh
+
 #Go to wp-content directory.
 cd "$wpcontentdir";
 
