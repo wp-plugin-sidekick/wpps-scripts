@@ -22,25 +22,6 @@ fi
 #Go to wp-content directory.
 cd "$wpcontentdir";
 
-# Make sure that packagejson and composer json exist in wp-content.
-if [ ! -f package.json ] || [ ! -f composer.json ]; then
-	cd "$scriptsdir";
-	sh hoister.sh -c "$wpcontentdir";
-	cd "$wpcontentdir";
-fi
-
-# Make sure that node_modules exists in wp-content.
-if [ ! -d node_modules ] || [ ! -d vendor ]; then
-	# Run npm install in wp-content
-	npm install;
-fi
-
-# Make sure that vendor exists in wp-content.
-if [ ! -d vendor ]; then
-	# Run composer install in wp-content
-	composer install;
-fi
-
 # Run the lint command from the wp-content directory.
 if [ "$fix" = "1" ]; then
 	npm run lint:css "$plugindir/**/*.*css"  -- --fix;
