@@ -3,7 +3,6 @@
 while getopts 'c:p:n:t:f:' flag; do
 	case "${flag}" in
 		p) plugindirname=${OPTARG} ;;
-		t) textdomain=${OPTARG} ;;
 	esac
 done
 
