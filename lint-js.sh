@@ -10,17 +10,18 @@ done
 
 # Get the absolute path to the plugin we want to check.
 if [ "$cwdiswppslinter" = "1" ]; then
-	plugindir="$(dirname $(dirname $(dirname $(dirname $(realpath $0) ) ) ) )/$plugindirname"
+	plugindir="$(dirname $(dirname $(dirname $(dirname $0 ) ) ) )/$plugindirname"
 	wpcontentdir="./../../../../"
-	scriptsdir="$(dirname $(realpath $0) ) )"
+	scriptsdir="$(dirname $0 ) )"
 else
-	plugindir="$(dirname "$(dirname "$(realpath "$0")" )" )"
-	wpcontentdir="$(dirname "$(dirname "$(dirname "$(dirname "$(realpath $0)" )" )" )" )"
+	plugindir="$(dirname "$(dirname "$0" )" )"
+	wpcontentdir="$(dirname "$(dirname "$(dirname "$(dirname "$0" )" )" )" )"
 	scriptsdir="$plugindir/wpps-scripts/"
 fi
 
 #Go to wp-content directory.
 cd "$wpcontentdir";
+echo "dirname dirname 0 is $( dirname ( dirname $0 ) )"
 
 # Make sure that packagejson and composer json exist in wp-content.
 if [ ! -f package.json ] || [ ! -f composer.json ]; then
