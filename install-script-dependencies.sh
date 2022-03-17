@@ -1,11 +1,5 @@
 #!/bin/bash
 
-while getopts 'c:p:n:t:f:' flag; do
-	case "${flag}" in
-		p) plugindirname=${OPTARG} ;;
-	esac
-done
-
 # Get the absolute path to the plugin we want to check.
 plugindir="$(dirname "$(dirname "$(realpath "$0")" )" )"
 wpcontentdir="$(dirname "$(dirname "$(dirname "$(dirname "$(realpath $0)" )" )" )" )"
