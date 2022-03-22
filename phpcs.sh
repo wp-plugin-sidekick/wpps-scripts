@@ -10,9 +10,9 @@ done
 
 # Get the absolute path to the plugin we want to check.
 if [ "$cwdiswppslinter" = "1" ]; then
-	plugindir="$(dirname $(dirname $(dirname $(dirname $(realpath $0) ) ) ) )/$plugindirname"
+	plugindir="$(dirname "$(dirname "$(dirname "$(dirname "$(realpath "$0")" )" )" )" )/$plugindirname"
 	wpcontentdir="./../../../../"
-	scriptsdir="$(dirname $(realpath $0) ) )"
+	scriptsdir="$(dirname "$(realpath "$0")" )/"
 else
 	plugindir="$(dirname "$(dirname "$(realpath "$0")" )" )"
 	wpcontentdir="$(dirname "$(dirname "$(dirname "$(dirname "$(realpath $0)" )" )" )" )"
@@ -21,22 +21,10 @@ fi
 
 #Go to wp-content directory.
 cd "$wpcontentdir";
-
-# Make sure that packagejson and composer json exist in wp-content.
-if [ ! -f package.json ] || [ ! -f composer.json ]; then
-	cd "$scriptsdir";
-	sh hoister.sh -c "$wpcontentdir";
-	cd "$wpcontentdir";
-fi
-
-# Make sure that vendor exists in wp-content.
-if [ ! -d vendor ]; then
-	# Run composer install in wp-content
-	composer install;
-fi
+sh "${scriptsdir}/install-script-dependencies.sh" -c $cwdiswppslinter
 
 # Copy the phpcs.xml file from the wpps-scripts module to wp-content.
-cp "$scriptsdir"/phpcs.xml ./
+cp "$scriptsdir"phpcs.xml ./
 
 # Modify the phpcs.xml file in the wpps-scripts module to contain the namespace and text domain of the plugin in question.
 sed -i.bak "s/MadeWithWPPS/$namespace/g" phpcs.xml
