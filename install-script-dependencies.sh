@@ -1,9 +1,21 @@
 #!/bin/bash
 
+while getopts 'c:' flag; do
+	case "${flag}" in
+		c) cwdiswppslinter=${OPTARG} ;;
+	esac
+done
+
 # Get the absolute path to the plugin we want to check.
-plugindir="$(dirname "$(dirname "$(realpath "$0")" )" )"
-wpcontentdir="$(dirname "$(dirname "$(dirname "$(dirname "$(realpath $0)" )" )" )" )"
-scriptsdir="$plugindir/wpps-scripts/"
+if [ "$cwdiswppslinter" = "1" ]; then
+	plugindir="$(dirname "$(dirname "$(dirname "$(dirname "$(realpath "$0")" )" )" )" )/$plugindirname"
+	wpcontentdir="./../../../../"
+	scriptsdir="$(dirname "$(realpath "$0")" )/"
+else
+	plugindir="$(dirname "$(dirname "$(realpath "$0")" )" )"
+	wpcontentdir="$(dirname "$(dirname "$(dirname "$(dirname "$(realpath $0)" )" )" )" )"
+	scriptsdir="$plugindir/wpps-scripts/"
+fi
 
 #Go to wp-content directory.
 cd "$wpcontentdir";
