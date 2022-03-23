@@ -6,5 +6,12 @@
     "jsdoc": {
       "mode": "typescript"
     }
-  }
+  },
+  "overrides": [
+    {
+			"files": [ "**/*.test.js", "**/test/**/*.js" ],
+			"excludedFiles": [ "test/e2e/**/*.js" ],
+			"extends": [ "plugin:@wordpress/eslint-plugin/test-unit" ]
+		}
+  ]
 }
