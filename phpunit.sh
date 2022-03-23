@@ -12,6 +12,7 @@ if [ "$cwdiswppslinter" = "1" ]; then
 	wpcontentdir="./../../../../"
 	scriptsdir="$(dirname "$(realpath "$0")" )/"
 else
+	cwdiswppslinter=0
 	plugindir="$(dirname "$(dirname "$(realpath "$0")" )" )"
 	wpcontentdir="$(dirname "$(dirname "$(dirname "$(dirname "$(realpath $0)" )" )" )" )"
 	scriptsdir="$plugindir/wpps-scripts/"
@@ -19,7 +20,7 @@ fi
 
 #Go to wp-content directory.
 cd "$wpcontentdir";
-sh "${scriptsdir}/install-script-dependencies.sh" -c $cwdiswppslinter
+sh "${scriptsdir}install-script-dependencies.sh" -c $cwdiswppslinter
 
 # Start wp-env
 npx -p @wordpress/env wp-env start

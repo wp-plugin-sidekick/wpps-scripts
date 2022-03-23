@@ -1,7 +1,8 @@
 #!/bin/bash
 
-while getopts 'p:' flag; do
+while getopts 'c:p:' flag; do
 	case "${flag}" in
+		c) cwdiswppslinter=${OPTARG} ;;
 		p) plugindirname=${OPTARG} ;;
 	esac
 done
@@ -12,12 +13,13 @@ if [ "$cwdiswppslinter" = "1" ]; then
 	wpcontentdir="./../../../../"
 	scriptsdir="$(dirname "$(realpath "$0")" )/"
 else
+	cwdiswppslinter=0
 	plugindir="$(dirname "$(dirname "$(realpath "$0")" )" )"
 	wpcontentdir="$(dirname "$(dirname "$(dirname "$(dirname "$(realpath $0)" )" )" )" )"
 	scriptsdir="$plugindir/wpps-scripts/"
 fi
 
 cd "$wpcontentdir"
-sh "${scriptsdir}/install-script-dependencies.sh" -c $cwdiswppslinter
+sh "${scriptsdir}install-script-dependencies.sh" -c $cwdiswppslinter
 
 npm run test:js $plugindir
