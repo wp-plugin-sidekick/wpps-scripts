@@ -1,0 +1,13 @@
+*.gitignore*
+*node_modules/*
+*wpps-scripts/*
+*.git/*
+*.circleci/*
+*package.json*
+*tests/*
+*src/*
+*composer.json*
+*composer.lock*
+*package-lock.json*
+*postcss.config.js*
+*tailwind.config.js*
