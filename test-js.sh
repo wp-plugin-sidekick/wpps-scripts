@@ -22,4 +22,4 @@ fi
 cd "$wpcontentdir"
 sh "${scriptsdir}install-script-dependencies.sh" -c $cwdiswppslinter
 
-npm run test:js $plugindir --config jest.config.js
+npm run test:js $plugindir
