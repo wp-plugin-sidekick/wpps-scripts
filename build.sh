@@ -8,7 +8,7 @@ for DIR in wp-modules/*/; do
 	echo "Module: $DIR"
 
 	# Run the "npm run build" command in its package.json file.
-	if [[ -f "package.json" ]]
+	if [ -f package.json ]
 	then
 		npm run build
 	fi
