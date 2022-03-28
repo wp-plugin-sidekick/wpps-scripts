@@ -8,3 +8,4 @@ build_version=`grep 'Version:' $plugin_dir/$plugin_slug.php | cut -f4 -d' '`
 zip_file_name="$plugin_slug.$build_version.zip"
 cd "$(dirname "$plugin_dir")"
 zip -r "$zip_file_name" "$plugin_slug" -x@"$scripts_dir.zipignore"
+mv "$zip_file_name" "$plugin_dir"
