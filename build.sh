@@ -8,7 +8,7 @@ for DIR in wp-modules/*/; do
 	# Run the "npm run build" command in its package.json file.
 	if [[ -f "package.json" ]]
 	then
-		npm run build &
+		npm run build
 	fi
 
 	# Go back to main directory, which includes the plugin modules.   
