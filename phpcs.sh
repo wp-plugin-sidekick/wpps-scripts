@@ -1,6 +1,7 @@
-while getopts 'c:p:n:t:f:' flag; do
+#!/bin/bash
+
+while getopts 'p:n:t:f:' flag; do
 	case "${flag}" in
-		c) cwdiswppslinter=${OPTARG} ;;
 		p) plugindirname=${OPTARG} ;;
 		n) namespace=${OPTARG} ;;
 		t) textdomain=${OPTARG} ;;
@@ -9,23 +10,10 @@ while getopts 'c:p:n:t:f:' flag; do
 done
 
 # Get the absolute path to the plugin we want to check.
-if [ "$cwdiswppslinter" = "1" ]; then
-	plugindir="$(dirname "$(dirname "$(dirname "$(dirname "$(realpath "$0")" )" )" )" )/$plugindirname"
-	wpcontentdir="./../../../../"
-	scriptsdir="$(dirname "$(realpath "$0")" )/"
-else
-	cwdiswppslinter=0
-	plugindir="$(dirname "$(dirname "$(realpath "$0")" )" )"
-	wpcontentdir="$(dirname "$(dirname "$(dirname "$(dirname "$(realpath $0)" )" )" )" )"
-	scriptsdir="$plugindir/wpps-scripts/"
-fi
+plugindir="$(dirname "$(dirname "$(realpath "$0")" )" )"/plugins/$plugindirname
 
-#Go to wp-content directory.
-cd "$wpcontentdir";
-sh "${scriptsdir}install-script-dependencies.sh" -c $cwdiswppslinter
-
-# Copy the phpcs.xml file from the wpps-scripts module to wp-content.
-cp "$scriptsdir"phpcs.xml ./
+# Duplicate the phpcs.xml boiler, and call it phpcs.xml.
+cp phpcs-boiler.xml phpcs.xml
 
 # Modify the phpcs.xml file in the wpps-scripts module to contain the namespace and text domain of the plugin in question.
 sed -i.bak "s/MadeWithWPPS/$namespace/g" phpcs.xml
