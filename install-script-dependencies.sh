@@ -6,6 +6,10 @@ while getopts 'c:' flag; do
 	esac
 done
 
+if ! command -v realpath &> /dev/null; then
+	echo "The realpath command was not found, if you're on macOS, you may need to do 'brew install coreutils'"
+fi
+
 # Get the absolute path to the plugin we want to check.
 if [ "$cwdiswppslinter" = "1" ]; then
 	plugindir="$(dirname "$(dirname "$(dirname "$(dirname "$(realpath "$0")" )" )" )" )/$plugindirname"
