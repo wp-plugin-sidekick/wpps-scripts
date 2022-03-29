@@ -7,6 +7,7 @@ build_version=`grep 'Version:' $plugin_dir/$plugin_slug.php | cut -f4 -d' '`
 zip_file_name="$plugin_slug.$build_version.zip"
 cd "$(dirname "$plugin_dir")"
 
+ls -alrth "$plugin_dir.zipignore"
 if [ ! -f "$plugin_dir.zipignore" ]; then
 	echo "Error: please add a .zipignore to the root of the plugin"
 	exit 1
