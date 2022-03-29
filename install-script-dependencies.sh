@@ -6,7 +6,7 @@ while getopts 'c:' flag; do
 	esac
 done
 
-if ! command -v realpath &> /dev/null; then
+if [ ! $(command -v realpath &> /dev/null) ]; then
 	echo "The realpath command was not found, if you're on macOS, you may need to do 'brew install coreutils'"
 	exit 1
 fi
