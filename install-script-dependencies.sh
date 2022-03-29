@@ -8,6 +8,7 @@ done
 
 if ! command -v realpath &> /dev/null; then
 	echo "The realpath command was not found, if you're on macOS, you may need to do 'brew install coreutils'"
+	exit 1
 fi
 
 # Get the absolute path to the plugin we want to check.
