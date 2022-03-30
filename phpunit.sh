@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Run setup.
-source ./setup.sh
+. ./setup.sh
 
 # Start wp-env
 npx -p @wordpress/env wp-env start

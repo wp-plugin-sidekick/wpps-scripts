@@ -1,6 +1,6 @@
 #!/bin/bash
 
 # Run setup.
-source ./setup.sh
+. ./setup.sh
 
 npm run test:js $plugindir

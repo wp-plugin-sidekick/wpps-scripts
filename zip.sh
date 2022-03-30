@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Run setup.
-source ./setup.sh
+. ./setup.sh
 
 plugin_slug="$(basename "$plugin_dir")"
 

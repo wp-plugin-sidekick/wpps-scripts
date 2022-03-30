@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Run setup.
-source ./setup.sh
+. ./setup.sh
 
 # Run the lint command from the wp-content directory.
 if [ "$fix" = "1" ]; then

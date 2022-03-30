@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Run setup.
-source ./setup.sh
+. ./setup.sh
 
 # Loop through each wp-module in the plugin.
 for DIR in $plugindir/wp-modules/*; do
