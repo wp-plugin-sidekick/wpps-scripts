@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Run setup.
-. setup.sh
+. ./setup.sh
 
 # Duplicate the phpcs.xml boiler, and call it phpcs.xml.
 cp phpcs-boiler.xml phpcs.xml
