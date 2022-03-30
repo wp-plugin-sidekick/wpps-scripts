@@ -10,7 +10,7 @@
   },
   "overrides": [
     {
-			"files": [ "**/*.test.js", "**/test/**/*.js" ],
+      "files": [ "*" ],
 			"extends": [ "plugin:@wordpress/eslint-plugin/test-unit" ]
 		}
   ]
