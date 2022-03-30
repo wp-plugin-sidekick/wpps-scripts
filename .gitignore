@@ -5,3 +5,4 @@ package-lock.json
 build
 /vendor
 /phpcs.xml.bak
+/phpcs.xml
