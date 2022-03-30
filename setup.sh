@@ -18,7 +18,7 @@ fi
 plugindir="$(dirname "$(dirname "$(realpath "$0")" )" )"/plugins/$plugindirname
 
 # Install dependencies.
-if [ ! -f package.json ] || [ ! -f composer.json ]; then
+#if [ ! -f package.json ] || [ ! -f composer.json ]; then
 	npm install
 	composer install
-fi
+#fi
