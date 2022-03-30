@@ -5,6 +5,7 @@
 
 # Loop through each wp-module in the plugin.
 for DIR in $plugindir/wp-modules/*; do
+	echo $DIR
 	# If this module has a package.json file.
 	if [[ -f "$DIR/package.json" ]]
 	then
