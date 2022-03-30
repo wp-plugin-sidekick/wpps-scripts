@@ -1,17 +1,12 @@
 {
   "root": true,
   "extends": [
-    "plugin:@wordpress/eslint-plugin/recommended"
+    "plugin:@wordpress/eslint-plugin/recommended",
+    "plugin:@wordpress/eslint-plugin/test-unit"
   ],
   "settings": {
     "jsdoc": {
       "mode": "typescript"
     }
-  },
-  "overrides": [
-    {
-      "files": [ "*" ],
-			"extends": [ "plugin:@wordpress/eslint-plugin/test-unit" ]
-		}
-  ]
+  }
 }
