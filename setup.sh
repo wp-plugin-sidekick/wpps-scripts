@@ -35,6 +35,6 @@ for DIR in $plugindir/wp-modules/*; do
 			npm install;
 		fi
 		
-		cd -;
+		cd - > /dev/null
 	fi
 done
