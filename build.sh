@@ -1,19 +1,23 @@
 #!/bin/bash
 
+# Run setup.
+. ./setup.sh
+
 # Loop through each wp-module in the plugin.
-
-for DIR in wp-modules/*/; do
-	# Go to the directory of this wp-module.
-	cd "$DIR";
-	echo "Module: $DIR"
-
-	# Run the "npm run build" command in its package.json file.
-	if [ -f package.json ]
+for DIR in $plugindir/wp-modules/*; do
+	# If this module has a package.json file.
+	if [ -f "$DIR/package.json" ];
 	then
-		npm run build
+		# Go to the directory of this wp-module.
+		cd "$DIR";
+		# Run npm install for this module.
+		npm install;
+		
+		# Run the build script for this module.
+		npm run build;
 	fi
 
-	# Go back to main directory, which includes the plugin modules.   
-	cd -
-	
 done
+
+# Finish with a wait command, which lets a kill (cmd+c) kill all of the process created in this loop.
+wait;

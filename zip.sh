@@ -1,6 +1,8 @@
 #!/bin/bash
 
-plugin_dir="$(dirname "$(dirname "$(realpath "$0")" )" )"
+# Run setup.
+. ./setup.sh
+
 plugin_slug="$(basename "$plugin_dir")"
 
 build_version=`grep 'Version:' $plugin_dir/$plugin_slug.php | cut -f4 -d' '`

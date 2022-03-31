@@ -1,6 +1,6 @@
 {
 	"mappings": {
-		"wp-content/": "./"
+		"wp-content/": "../"
 	},
 	"port": 1000,
 	"testsPort": 1001,
