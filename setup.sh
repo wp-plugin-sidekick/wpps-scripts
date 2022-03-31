@@ -15,7 +15,8 @@ if [ ! "$(realpath "$0")" ]; then
 fi
 
 # Define the absolute path to the plugin we want to deal with.
-plugindir="$(dirname "$(dirname "$(realpath "$0")" )" )"/plugins/$plugindirname
+wpcontentdir="$(dirname "$(dirname "$(realpath "$0")" )" )"
+plugindir=$wpcontentdir/plugins/$plugindirname
 
 # Install dependencies.
 if [ ! -d node_modules ] || [ ! -d vendor ]; then
