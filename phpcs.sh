@@ -12,7 +12,7 @@ sed -i.bak "s/madewithwpps/$textdomain/g" phpcs.xml
 
 # Run the phpcs command from the wp-content directory.
 if [ "$fix" = "1" ]; then
-	./vendor/bin/phpcbf -q "$plugindir";
+	./vendor/bin/phpcbf -q "$plugindir" --basepath="$wpcontentdir"
 	./vendor/bin/phpcs -q "$plugindir";
 else
 	./vendor/bin/phpcs -q "$plugindir";
