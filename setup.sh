@@ -9,8 +9,15 @@ while getopts 'p:n:t:f:' flag; do
 	esac
 done
 
+# Get the absolute path to wpcontent
+wpcontentdir="$(dirname "$PWD" )"
+
+# If this system supports realpath, override with that.
+if [ "$(realpath "$0")" ]; then
+	wpcontentdir="$(dirname "$(dirname "$(realpath "$0")" )" )"
+fi
+
 # Define the absolute path to the plugin we want to deal with.
-wpcontentdir="$(dirname "${PWD:A}" )"
 plugindir=$wpcontentdir/plugins/$plugindirname
 
 # Install dependencies.
