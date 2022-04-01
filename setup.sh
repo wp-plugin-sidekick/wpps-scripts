@@ -9,13 +9,8 @@ while getopts 'p:n:t:f:' flag; do
 	esac
 done
 
-if [ ! "$(realpath "$0")" ]; then
-	echo "The realpath command might not exist. If you're on macOS, you may need to do 'brew install coreutils'"
-	exit 1
-fi
-
 # Define the absolute path to the plugin we want to deal with.
-wpcontentdir="$(dirname "$(dirname "$(realpath "$0")" )" )"
+wpcontentdir="$(dirname "${PWD:A}" )"
 plugindir=$wpcontentdir/plugins/$plugindirname
 
 # Install dependencies.
