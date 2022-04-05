@@ -5,7 +5,7 @@
 
 plugin_slug="$(basename "$plugindir")"
 
-build_version=`grep 'Version:' $plugindir/$plugin_slug.php | cut -f4 -d' '`
+build_version=`grep 'Version:' "$plugindir"/$plugin_slug.php | cut -f4 -d' '`
 zip_file_name="$plugin_slug.$build_version.zip"
 cd "$(dirname "$plugindir")"
 
