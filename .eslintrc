@@ -14,5 +14,16 @@
     "jsdoc": {
       "mode": "typescript"
     }
-  }
+  },
+  "overrides": [
+    {
+     "files": [
+       "**/test/*.js",
+       "**/*.test.js"
+     ],
+     "rules": {
+       "import/no-unresolved": "off"
+     }
+   }
+ ]
 }
