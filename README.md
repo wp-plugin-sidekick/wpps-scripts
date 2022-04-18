@@ -14,7 +14,7 @@ Add phpunit, eslint, and stylelint using WordPress Coding Standards to any WordP
 	},
 	"wpps_options": "-p your-plugin-directory-name -n YourPluginNamespace -t your-plugin-textdomain",
 	"scripts": {
-		"preinstall": "if [ ! -d ../../wpps-scripts ]; then git clone https://github.com/wp-plugin-sidekick/wpps-scripts ../../wpps-scripts; fi;",
+		"preinstall": "cd ../../; if [ ! -d wpps-scripts ]; then git clone https://github.com/wp-plugin-sidekick/wpps-scripts wpps-scripts; fi; git checkout main; git pull origin main;",
 		"dev": "cd ../../wpps-scripts; sh dev.sh $npm_package_wpps_options",
 		"build": "cd ../../wpps-scripts; sh build.sh $npm_package_wpps_options",
 		"test:phpunit": "cd ../../wpps-scripts; sh phpunit.sh $npm_package_wpps_options;",
