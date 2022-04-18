@@ -12,11 +12,11 @@ for DIR in "$plugindir"/wp-modules/*; do
 		cd "$DIR";
 		
 		if [ ! -d node_modules ]; then
-			npm install;
+			npm install &
 		fi
 
 		# Run the build script for this module.
-		npm run dev;
+		npm run dev &
 	fi
 
 done
