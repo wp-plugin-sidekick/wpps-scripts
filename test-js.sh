@@ -3,4 +3,4 @@
 # Run setup.
 . ./setup.sh
 
-npm run test:js -- --roots "$plugindir" --transformIgnorePatterns '**/**.svg'
+npm run test:js -- --roots "$plugindir" --transformIgnorePatterns '.svg'
