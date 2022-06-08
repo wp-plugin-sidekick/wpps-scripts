@@ -2,7 +2,7 @@
 module.exports = {
   ...require('@wordpress/scripts/config/jest-unit.config'),
   transform: {
-    '\\.(jpg|jpeg|png|svg)$':
-      '<rootDir>/fileTransformer.js',
+    '^.+\\.[jt]sx?$': '<rootDir>/node_modules/@wordpress/scripts/config/babel-transform',
+    '\\.(jpg|jpeg|png|svg)$': '<rootDir>/fileTransformer.js',
   },
 };
