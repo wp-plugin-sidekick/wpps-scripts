@@ -10,23 +10,32 @@ Add phpunit, eslint, and stylelint using WordPress Coding Standards to any WordP
 	"license": "GPL-2.0",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/your-repo-url"
+		"url": "your-repo-url-here"
 	},
+	"wpps_options": "-p your-plugin-directory-name -n YourPluginNamespace -t your-plugin-textdomain",
 	"scripts": {
-		"clone-wpps": "rm -rf wpps-scripts; git clone https://github.com/wp-plugin-sidekick/wpps-scripts; cd ../; git clone https://github.com/wp-plugin-sidekick/wp-plugin-sidekick;",
-		"installation": "npm run clone-wpps; sh wpps-scripts/install-module-dependencies.sh;",
-		"dev": "sh wpps-scripts/dev.sh",
-		"test:phpunit": "npm run clone-wpps; sh wpps-scripts/phpunit.sh -p fse-studio;",
-		"lint:php": "sh wpps-scripts/phpcs.sh -p fse-studio -n FseStudio -t fse-studio;",
-		"lint:php:fix": "sh wpps-scripts/phpcs.sh -p fse-studio -n FseStudio -t fse-studio -f 1;",
-		"lint:js": "sh wpps-scripts/lint-js.sh -n FseStudio -t fse-studio",
-		"lint:js:fix": "sh wpps-scripts/lint-js.sh -n FseStudio -t fse-studio -f 1;",
-		"lint:css": "sh wpps-scripts/lint-css.sh -p fse-studio -n FseStudio -t fse-studio;",
-		"lint:css:fix": "sh wpps-scripts/lint-css.sh -p fse-studio -n FseStudio -t fse-studio -f 1;"
+		"preinstall": "cd ../../; if [ ! -d wpps-scripts ]; then git clone https://github.com/wp-plugin-sidekick/wpps-scripts wpps-scripts; fi; cd wpps-scripts; git checkout main; git pull origin main;",
+		"dev": "cd ../../wpps-scripts; sh dev.sh $npm_package_wpps_options",
+		"build": "cd ../../wpps-scripts; sh build.sh $npm_package_wpps_options",
+		"test:phpunit": "cd ../../wpps-scripts; sh phpunit.sh $npm_package_wpps_options;",
+		"lint:php": "cd ../../wpps-scripts; sh phpcs.sh $npm_package_wpps_options;",
+		"lint:php:fix": "cd ../../wpps-scripts; sh phpcs.sh $npm_package_wpps_options -f 1;",
+		"lint:js": "cd ../../wpps-scripts; sh lint-js.sh $npm_package_wpps_options",
+		"lint:js:fix": "cd ../../wpps-scripts; sh lint-js.sh $npm_package_wpps_options -f 1;",
+		"lint:css": "cd ../../wpps-scripts; sh lint-css.sh $npm_package_wpps_options;",
+		"lint:css:fix": "cd ../../wpps-scripts; sh lint-css.sh $npm_package_wpps_options -f 1;",
+		"test:js": "cd ../../wpps-scripts; sh test-js.sh $npm_package_wpps_options;",
+		"zip": "cd ../../wpps-scripts; sh zip.sh $npm_package_wpps_options"
 	}
 }
+
 ```
 
-Then run `npm run installation`. This will clone this repo inside your project*, and make the commands like `npm run lint:php` work on the command line when inside the plugin's directory.
+In the example package.json file above, simply replace these strings:
 
-*You will likely want to add a gitignore to your project as well that ignores the wpps-scripts directory.
+- `your-plugin-name` - A slug for your plugin
+- `your-plugin-directory-name` - The name of your plugins directory (Used to tell wpps-scripts which plugin to lint/test)
+- `YourPluginNamespace` - The unique namespace used for your plugin (Will be enforced as function/class prefix in WordPress Coding Standards)
+- `your-plugin-textdomain` - The text domain to use for your plugin (Will be enforced by WordPress Coding Standards)
+
+Then inside your plugin, run `npm run install`. This will clone this repo inside your local wp-content directory, and make the commands like `npm run lint:php` work on the command line when inside the plugin's directory.
