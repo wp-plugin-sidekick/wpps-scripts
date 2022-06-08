@@ -1,0 +1,18 @@
+{
+  "extends": [
+    "plugin:@wordpress/eslint-plugin/recommended"
+  ],
+  "globals": {
+    "beforeEach": "readonly",
+    "describe": "readonly",
+    "expect": "readonly",
+    "it": "readonly",
+    "jest": "readonly",
+    "test": "readonly"
+  },
+  "settings": {
+    "jsdoc": {
+      "mode": "typescript"
+    }
+  }
+}
