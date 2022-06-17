@@ -9,6 +9,13 @@ while getopts 'p:n:t:f:' flag; do
 	esac
 done
 
+# Make sure the node version matches.
+nodeversion=$( node -v );
+if [[ $nodeversion != v14* ]]; then
+	echo "Your version of node needs to be v14, but it is set to be "$nodeversion;
+	exit 1;
+fi
+
 # Get the absolute path to wpcontent
 wpcontentdir="$(dirname "$PWD" )"
 
