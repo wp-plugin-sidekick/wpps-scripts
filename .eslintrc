@@ -14,5 +14,8 @@
     "jsdoc": {
       "mode": "typescript"
     }
+  },
+  "rules": {
+    "react/jsx-no-target-blank": "off"
   }
 }
