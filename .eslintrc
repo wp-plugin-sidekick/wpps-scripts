@@ -19,5 +19,8 @@
         "extensions": [".js", ".jsx", ".ts", ".tsx"]
       }
     },
+  },
+  "rules": {
+    "react/jsx-no-target-blank": "off"
   }
 }
