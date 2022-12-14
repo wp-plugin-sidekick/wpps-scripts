@@ -18,9 +18,11 @@
       "node": {
         "extensions": [".js", ".jsx", ".ts", ".tsx"]
       }
-    },
+    }
   },
   "rules": {
+    "jsdoc/require-param-type": "off",
+    "jsdoc/require-returns-type": "off",
     "react/jsx-no-target-blank": "off"
   }
 }
