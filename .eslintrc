@@ -21,6 +21,7 @@
     }
   },
   "rules": {
+    "jsdoc/require-param": "off",
     "jsdoc/require-param-type": "off",
     "jsdoc/require-returns-type": "off",
     "react/jsx-no-target-blank": "off"
