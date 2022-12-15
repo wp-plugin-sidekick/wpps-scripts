@@ -21,9 +21,18 @@
     }
   },
   "rules": {
-    "jsdoc/require-param": "off",
-    "jsdoc/require-param-type": "off",
-    "jsdoc/require-returns-type": "off",
     "react/jsx-no-target-blank": "off"
-  }
+  },
+  "overrides": [
+    {
+      "files": [ "*.ts", "*.tsx" ],
+      "rules": {
+        "jsdoc/require-param": "off",
+        "jsdoc/require-param-type": "off",
+        "jsdoc/require-returns-type": "off",
+        "no-unused-vars": "off",
+        "no-undef": "off"
+      }
+    }
+  ]
 }
