@@ -60,6 +60,8 @@
 	<!-- For help in understanding this testVersion:
 		https://github.com/PHPCompatibility/PHPCompatibility#sniffing-your-code-for-compatibility-with-specific-php-versions -->
 	<config name="testVersion" value="7.4-"/>
+	<config name="text_domain" value="madewithwpps"/>
+	<config name="prefixes" value="MadeWithWPPS"/>
 
 	<!-- Rules: WordPress Coding Standards - see
 		https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards -->
@@ -77,21 +79,9 @@
 		<exclude name="WordPress.Files.FileName.NotHyphenatedLowercase"/>
 	</rule>
 
-	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
-		<properties>
-			<property name="prefixes" type="array">
-				<element value="MadeWithWPPS"/>
-			</property>
-		</properties>
-	</rule>
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals"/>
 
-	<rule ref="WordPress.WP.I18n">
-		<properties>
-			<property name="text_domain" type="array">
-				<element value="madewithwpps"/>
-			</property>
-		</properties>
-	</rule>
+	<rule ref="WordPress.WP.I18n"/>
 
 	<rule ref="WordPress.Utils.I18nTextDomainFixer">
 		<properties>
