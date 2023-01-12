@@ -2,12 +2,14 @@
 
 while getopts 'p:n:t:f:' flag; do
 	case "${flag}" in
-		p) plugindirname=${OPTARG} ;;
+		p) plugindir=${OPTARG} ;;
 		n) namespace=${OPTARG} ;;
 		t) textdomain=${OPTARG} ;;
 		f) fix=${OPTARG} ;;
 	esac
 done
+
+plugindirname=$(basename "$plugindir")
 
 # Make sure the node version matches.
 nodeversion=$( node -v );
@@ -15,17 +17,6 @@ if [[ $nodeversion != v14* ]]; then
 	echo "Your version of node needs to be v14, but it is set to be "$nodeversion;
 	exit 1;
 fi
-
-# Get the absolute path to wpcontent
-wpcontentdir="$(dirname "$PWD" )"
-
-# If this system supports realpath, override with that.
-if [ "$(realpath "$0")" ]; then
-	wpcontentdir="$(dirname "$(dirname "$(realpath "$0")" )" )"
-fi
-
-# Define the absolute path to the plugin we want to deal with.
-plugindir="$wpcontentdir"/plugins/"$plugindirname"
 
 # Install dependencies.
 if [ ! -d node_modules ] || [ ! -d vendor ]; then
