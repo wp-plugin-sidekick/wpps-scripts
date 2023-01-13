@@ -6,3 +6,5 @@ build
 /vendor
 /phpcs.xml.bak
 /phpcs.xml
+/.wp-env.json
+/.wp-env.json.bak
