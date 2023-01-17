@@ -16,7 +16,7 @@ for DIR in "$plugindir"/wp-modules/*; do
 		fi
 
 		# Run the build script for this module.
-		npm ci && npm run dev &
+		npm run dev &
 	fi
 
 done
