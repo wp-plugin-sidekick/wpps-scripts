@@ -11,7 +11,7 @@ cd "$(dirname "$plugindir")"
 
 if [ -f "$plugindir/.zipignore" ]; then
 	ignore_file="$plugindir/.zipignore"
-else if [ -f "$plugindir/.distignore" ]; then
+elif [ -f "$plugindir/.distignore" ]; then
 	ignore_file="$plugindir/.distignore"
 else
 	echo "Error: please add a .zipignore to the root of the plugin"
