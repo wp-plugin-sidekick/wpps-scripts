@@ -9,7 +9,6 @@ build_version=`grep 'Version:' "$plugindir"/$plugin_slug.php | cut -f4 -d' '`
 zip_file_name="$plugin_slug.$build_version.zip"
 cd "$(dirname "$plugindir")"
 
-ignore_file="$plugindir/.zipignore"
 if [ -f "$ignore_file" ]; then
 	ignore_file="$plugindir/.zipignore"
 elif [ -f "$plugindir/.distignore" ]; then
