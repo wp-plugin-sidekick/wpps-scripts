@@ -18,5 +18,6 @@ else
 	exit 1
 fi
 
-zip -r "$zip_file_name" "$plugin_slug" -x@"$ignore_file"
+# Ensure every line in the ignore file begins and ends with *
+sed "s/^[^*]/*&/g" "$ignore_file" | sed "s/[^*]$/&*/g" | xargs zip -r "$zip_file_name" "$plugin_slug" -x
 mv "$zip_file_name" "$plugindir"
