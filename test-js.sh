@@ -17,6 +17,7 @@ for DIR in "$plugindir"/wp-modules/*; do
 			cp -r "$wpps_scripts_dir"/node_modules/react-test-renderer "$DIR"/node_modules/react-test-renderer
 			cp -r "$wpps_scripts_dir"/node_modules/@types/jest "$DIR"/node_modules/@types/jest
 			cp -r "$wpps_scripts_dir"/node_modules/@types/react-test-renderer "$DIR"/node_modules/@types/react-test-renderer
+			cp -r "$wpps_scripts_dir"/node_modules/@testing-library/react "$DIR"/node_modules/@testing-library/react
 		fi
 		
 		cd - > /dev/null
