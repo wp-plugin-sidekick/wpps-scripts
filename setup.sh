@@ -9,6 +9,8 @@ while getopts 'p:n:t:f:' flag; do
 	esac
 done
 
+wpps_scripts_dir="$PWD";
+
 plugindirname=$(basename "$plugindir")
 
 # Make sure the node version matches.
