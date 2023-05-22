@@ -8,3 +8,4 @@ build
 /phpcs.xml
 /.wp-env.json
 /.wp-env.json.bak
+.phpunit.result.cache
