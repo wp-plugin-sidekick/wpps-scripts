@@ -16,6 +16,7 @@ Run phpunit, eslint, and stylelint using WordPress Coding Standards for any Word
 	"scripts": {
 		"preinstall": "if [ ! -d ../../wpps-scripts ]; then git clone https://github.com/wp-plugin-sidekick/wpps-scripts ../../wpps-scripts; else cd ../../wpps-scripts && git reset --hard && git checkout main && git pull origin main;fi;",
 		"postinstall": "cd ../../wpps-scripts; sh install.sh $npm_package_wpps_options -p \"${OLDPWD}\";",
+		"reinstall": "cd ../../wpps-scripts; sh install-clean.sh $npm_package_wpps_options -p \"${OLDPWD}\";",
 		"dev": "cd ../../wpps-scripts; sh dev.sh $npm_package_wpps_options -p \"${OLDPWD}\";",
 		"build": "cd ../../wpps-scripts; sh build.sh $npm_package_wpps_options -p \"${OLDPWD}\";",
 		"test:phpunit": "cd ../../wpps-scripts; sh phpunit.sh $npm_package_wpps_options -p \"${OLDPWD}\";",
